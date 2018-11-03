@@ -27,10 +27,10 @@ def pywalker(dirPath):
             dimsort(nestedPath)
 
 def dimsort(imgPath):
-    """ Parse image name as 'height'<x>'width' in pixels
+    """ Parse image dimensions 'height'<x>'width' in pixels
         and sort into directory of the same name """
     
-    # if ext is img format
+    # if ext is an image format
     if fnmatch.fnmatch(imgPath, '*.jpg') or \
         fnmatch.fnmatch(imgPath, '*.jpeg') or \
         fnmatch.fnmatch(imgPath, '*.png'):
@@ -52,7 +52,6 @@ def dimsort(imgPath):
                     except OSError as e:
                         sys.exit("Unable to create directory {}".format(heightByWidth))
 
-                newImg = dimPath+imgPath
                 # sort image into folder if not already present
                 if os.path.exists(dimPath+"/"+imgName):
                     print("Skipping '{}', file already present in {}".format(imgName, heightByWidth))
